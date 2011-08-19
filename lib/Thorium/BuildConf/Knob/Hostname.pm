@@ -1,6 +1,6 @@
 package Thorium::BuildConf::Knob::Hostname;
 {
-  $Thorium::BuildConf::Knob::Hostname::VERSION = '0.501';
+  $Thorium::BuildConf::Knob::Hostname::VERSION = '0.502';
 }
 
 # ABSTRACT: Network hostname
@@ -58,7 +58,7 @@ Thorium::BuildConf::Knob::Hostname - Network hostname
 
 =head1 VERSION
 
-version 0.501
+version 0.502
 
 =head1 AUTHOR
 

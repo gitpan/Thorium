@@ -1,6 +1,6 @@
 package Thorium::BuildConf::Roles::UI::InputBox;
 {
-  $Thorium::BuildConf::Roles::UI::InputBox::VERSION = '0.501';
+  $Thorium::BuildConf::Roles::UI::InputBox::VERSION = '0.502';
 }
 
 # ABSTRACT: dialog input box role
@@ -28,7 +28,7 @@ Thorium::BuildConf::Roles::UI::InputBox - dialog input box role
 
 =head1 VERSION
 
-version 0.501
+version 0.502
 
 =head1 AUTHOR
 

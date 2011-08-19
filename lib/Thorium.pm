@@ -1,6 +1,6 @@
 package Thorium;
 {
-  $Thorium::VERSION = '0.501';
+  $Thorium::VERSION = '0.502';
 }
 
 # ABSTRACT: Configuration management framework
@@ -17,7 +17,7 @@ Thorium - Configuration management framework
 
 =head1 VERSION
 
-version 0.501
+version 0.502
 
 =head1 ABOUT
 
@@ -40,7 +40,7 @@ aims to fill that gap other configuration systems don't.
 
 =begin html
 
-<p>With Thorium> this is possible:</p>
+<p>With Thorium this is possible:</p>
 
 <p>Introduction screen:</p>
 
@@ -52,7 +52,7 @@ aims to fill that gap other configuration systems don't.
 
 <p>Changing value screen:</p>
 
-<img src="http://www.npjh.com/pictures/public/thorium/thorium-example-2.png" alt="changing value screen">
+<img src="http://www.npjh.com/pictures/public/thorium/thorium-example-3.png" alt="changing value screen">
 
 =end html
 
