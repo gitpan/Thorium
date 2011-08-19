@@ -1,6 +1,6 @@
 package Thorium;
 {
-  $Thorium::VERSION = '0.500';
+  $Thorium::VERSION = '0.501';
 }
 
 # ABSTRACT: Configuration management framework
@@ -17,7 +17,7 @@ Thorium - Configuration management framework
 
 =head1 VERSION
 
-version 0.500
+version 0.501
 
 =head1 ABOUT
 
@@ -26,9 +26,9 @@ features:
 
 =over 4
 
-=item * generates files from L<Template>s
+=item * generate files from templates via L<Template>
 
-=item * uses YAML as the backing store for configurations
+=item * enables complex data structures from the YAML backing store
 
 =item * optionally a console GUI to easily adjust configuration
 
@@ -40,19 +40,19 @@ aims to fill that gap other configuration systems don't.
 
 =begin html
 
-With L<Thorium> this is possible:
+<p>With Thorium> this is possible:</p>
 
-Introduction screen:
+<p>Introduction screen:</p>
 
-<img src="http://www.npjh.com/pictures/public/thorium/thorium-example-1.png" />
+<img src="http://www.npjh.com/pictures/public/thorium/thorium-example-1.png" alt="introduction screen">
 
-Configuration screen:
+<p>Configuration screen:</p>
 
-<img src="http://www.npjh.com/pictures/public/thorium/thorium-example-2.png" />
+<img src="http://www.npjh.com/pictures/public/thorium/thorium-example-2.png" alt="configuration screen">
 
-Changing value screen:
+<p>Changing value screen:</p>
 
-<img src="http://www.npjh.com/pictures/public/thorium/thorium-example-2.png" />
+<img src="http://www.npjh.com/pictures/public/thorium/thorium-example-2.png" alt="changing value screen">
 
 =end html
 
@@ -127,25 +127,15 @@ This will be our access to the YAML data we created in step TODO.
 
     extends 'Thorium::Conf';
 
+    # core
+    use File::Spec;
+
     # CPAN
     use Dir::Self;
-    use Path::Class::File;
 
-    has '+component_name' => ('default' => 'pizza-recipe-maker');
+    has '+component_name' => ('default' => 'pizza-maker');
 
-    has '+component' => (
-        'default' => sub {
-            my @files = (Path::Class::File->new(__DIR__, '..', '..', 'conf', 'presets', 'defaults.yaml')->stringify,);
-
-            my $preset_config = Path::Class::File->new(__DIR__, '..', '..', 'conf', 'local.yaml')->stringify;
-
-            if (-e -r -s $preset_config) {
-                push(@files, $preset_config);
-            }
-
-            return \@files;
-        }
-    );
+    has '+component_root' => ('default' => File::Spec->catdir(__DIR__, '..', '..'));
 
     __PACKAGE__->meta->make_immutable;
     no Moose;

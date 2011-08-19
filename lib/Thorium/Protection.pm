@@ -1,6 +1,6 @@
 package Thorium::Protection;
 {
-  $Thorium::Protection::VERSION = '0.500';
+  $Thorium::Protection::VERSION = '0.501';
 }
 
 # ABSTRACT: Use protection when dealing with radioactive elements
@@ -40,7 +40,7 @@ Thorium::Protection - Use protection when dealing with radioactive elements
 
 =head1 VERSION
 
-version 0.500
+version 0.501
 
 =head1 SYNOPSIS
 

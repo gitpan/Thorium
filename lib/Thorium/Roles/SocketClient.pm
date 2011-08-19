@@ -1,6 +1,6 @@
 package Thorium::Roles::SocketClient;
 {
-  $Thorium::Roles::SocketClient::VERSION = '0.500';
+  $Thorium::Roles::SocketClient::VERSION = '0.501';
 }
 
 # ABSTRACT: Adds socket operations to a class
@@ -112,7 +112,7 @@ Thorium::Roles::SocketClient - Adds socket operations to a class
 
 =head1 VERSION
 
-version 0.500
+version 0.501
 
 =head1 DESCRIPTION
 

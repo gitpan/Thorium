@@ -1,6 +1,6 @@
 package Thorium::Roles::Conf;
 {
-  $Thorium::Roles::Conf::VERSION = '0.500';
+  $Thorium::Roles::Conf::VERSION = '0.501';
 }
 
 # ABSTRACT: Adds configuration to your class
@@ -38,7 +38,7 @@ Thorium::Roles::Conf - Adds configuration to your class
 
 =head1 VERSION
 
-version 0.500
+version 0.501
 
 =head1 SYNOPSIS
 

@@ -1,6 +1,6 @@
 package Thorium::BuildConf::Roles::UI::RadioList;
 {
-  $Thorium::BuildConf::Roles::UI::RadioList::VERSION = '0.500';
+  $Thorium::BuildConf::Roles::UI::RadioList::VERSION = '0.501';
 }
 
 # ABSTRACT: dialog radio list role
@@ -28,7 +28,7 @@ Thorium::BuildConf::Roles::UI::RadioList - dialog radio list role
 
 =head1 VERSION
 
-version 0.500
+version 0.501
 
 =head1 AUTHOR
 

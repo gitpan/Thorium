@@ -1,6 +1,6 @@
 package Thorium::BuildConf;
 {
-  $Thorium::BuildConf::VERSION = '0.500';
+  $Thorium::BuildConf::VERSION = '0.501';
 }
 
 # ABSTRACT: Configuration management class
@@ -25,6 +25,7 @@ with qw(Thorium::Roles::Logging);
 
 # core
 use File::Basename qw();
+use File::Spec qw();
 use FindBin qw();
 use Getopt::Long qw();
 use Scalar::Util qw();
@@ -35,7 +36,6 @@ use File::Find::Rule;
 use Hobocamp::Dialog;
 use Hobocamp;
 use IO::Interactive qw();
-use Path::Class::File;
 use Template;
 use Try::Tiny;
 
@@ -140,7 +140,7 @@ has 'knobs' => (
 sub BUILD {
     my ($self) = @_;
 
-    $self->preset_root(Path::Class::File->new($self->root, 'conf', 'presets')->stringify);
+    $self->preset_root(File::Spec->catfile($self->root, 'conf', 'presets'));
 
     my %opts;
     Getopt::Long::GetOptions(\%opts, qw(verbose:1 help load=s list save=s fixup:s preview!)) or $self->usage();
@@ -166,7 +166,7 @@ sub BUILD {
     }
 
     if ($opts{'load'}) {
-        my $preset_file_name = Path::Class::File->new($self->preset_root, $opts{'load'} . '.yaml')->stringify;
+        my $preset_file_name = File::Spec->catfile($self->preset_root, $opts{'load'} . '.yaml');
 
         unless (-e -r -s $preset_file_name) {
             my $msg = "$preset_file_name does not exist, is not readable or is 0 bytes in size.";
@@ -981,7 +981,7 @@ Thorium::BuildConf - Configuration management class
 
 =head1 VERSION
 
-version 0.500
+version 0.501
 
 =head1 SYNOPSIS
 

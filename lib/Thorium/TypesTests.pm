@@ -1,6 +1,6 @@
 package Thorium::TypesTests;
 {
-  $Thorium::TypesTests::VERSION = '0.500';
+  $Thorium::TypesTests::VERSION = '0.501';
 }
 
 # ABSTRACT: additional tests for Thorium::Types
@@ -58,7 +58,7 @@ Thorium::TypesTests - additional tests for Thorium::Types
 
 =head1 VERSION
 
-version 0.500
+version 0.501
 
 =head1 SYNOPSIS
 

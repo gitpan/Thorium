@@ -35,7 +35,6 @@ my %WriteMakefileArgs = (
     'MooseX::Role::Strict' => '0',
     'MooseX::Types' => '0',
     'Params::Util' => '0',
-    'Path::Class::File' => '0',
     'Proc::ProcessTable' => '0',
     'Regexp::Common' => '0',
     'Sub::Exporter' => '0',
@@ -47,7 +46,7 @@ my %WriteMakefileArgs = (
     'YAML::XS' => '0',
     'indirect' => '0'
   },
-  'VERSION' => '0.500',
+  'VERSION' => '0.501',
   'test' => {
     'TESTS' => 't/*.t'
   }

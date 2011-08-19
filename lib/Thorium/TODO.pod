@@ -10,7 +10,7 @@ Thorium::TODO
 
 =head1 VERSION
 
-version 0.500
+version 0.501
 
 =head1 Thorium TODO
 
@@ -19,8 +19,6 @@ version 0.500
 =over 4
 
 =item * make preset location configurable
-
-=item * clean up Thorium::Conf extending interface
 
 =item * get Thorium::Utils added when Proc::ProcessTable works on most platforms
 

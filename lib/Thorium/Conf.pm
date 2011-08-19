@@ -1,6 +1,6 @@
 package Thorium::Conf;
 {
-  $Thorium::Conf::VERSION = '0.500';
+  $Thorium::Conf::VERSION = '0.501';
 }
 
 # ABSTRACT: Configuration class
@@ -12,9 +12,11 @@ use Moose;
 # Roles
 with qw(Thorium::Roles::Logging);
 
+# core
+use File::Spec;
+
 # CPAN
 use Hash::Merge::Simple qw();
-use Path::Class::File;
 use YAML::XS qw();
 
 # Attributes
@@ -41,70 +43,47 @@ has '_system_directory_root' => (
 );
 
 has 'component_name' => (
-    'is'            => 'ro',
-    'isa'           => 'Maybe[Str]',
-    'documentation' => 'File name base that might be stored in the _system_directory_root. When extending please provide this.'
+    'is'  => 'ro',
+    'isa' => 'Maybe[Str]',
+    'documentation' =>
+      'File name base that might be stored in the _system_directory_root. When extending please provide this.'
 );
 
 has 'global' => (
-    'is'      => 'ro',
-    'isa'     => 'Maybe[Str]',
-    'default' => sub {
-        my $filepath = Path::Class::File->new(shift->_system_directory_root, 'thorium.yaml')->stringify;
-
-        if (-e -r -s $filepath) {
-            return $filepath;
-        }
-
-        return;
-    },
+    'is'            => 'ro',
+    'isa'           => 'Maybe[Str]',
     'lazy'          => 1,
+    'builder'       => '_build_global',
     'documentation' => 'Global configuration file read by all configuration objects.'
 );
 
 has 'system' => (
-    'is'      => 'ro',
-    'isa'     => 'Maybe[Str]',
-    'default' => sub {
-        my ($self) = @_;
-
-        return unless ($self->component_name);
-
-        my $filepath = Path::Class::File->new($self->_system_directory_root, $self->component_name . '.yaml')->stringify;
-
-        if (-e -r -s $filepath) {
-            return $filepath;
-        }
-
-        return;
-    },
+    'is'            => 'ro',
+    'isa'           => 'Maybe[Str]',
     'lazy'          => 1,
+    'builder'       => '_build_system',
     'documentation' => 'Full path to the components system wide file.'
+);
+
+has 'component_root' => (
+    'is'            => 'rw',
+    'isa'           => 'Str',
+    'documentation' => 'Component specific root directory to read from.'
 );
 
 has 'component' => (
     'is'            => 'ro',
     'isa'           => 'Maybe[Str|ArrayRef]',
+    'lazy'          => 1,
+    'builder'       => '_build_component',
     'documentation' => 'Component specific file(s) to read from. Extended classes should set this.'
 );
 
 has 'env_var' => (
-    'is'      => 'ro',
-    'isa'     => 'Maybe[Str]',
-    'default' => sub {
-        my ($self) = @_;
-
-        if (exists($ENV{$self->env_var_name})) {
-            my $filepath = Path::Class::File->new($ENV{$self->env_var_name})->stringify;
-
-            if (-e -r -s $filepath) {
-                return $filepath;
-            }
-        }
-
-        return;
-    },
+    'is'            => 'ro',
+    'isa'           => 'Maybe[Str]',
     'lazy'          => 1,
+    'builder'       => '_build_env_var',
     'documentation' => 'Full path to the environmental set file.'
 );
 
@@ -131,14 +110,15 @@ sub _build_conf_data {
 
         my $path = $self->$attrib;
 
-        next unless $path;
+        next unless ($path);
 
-        $self->log->debug('Reading files from ', (ref($path) eq 'ARRAY') ? join(', ', @{$path}) : $path, " for $attrib");
+        $self->log->debug('Reading files from ', (ref($path) eq 'ARRAY') ? join(', ', @{$path}) : $path,
+            " for $attrib");
 
         my @files = ();
 
         # if path is an arrayref, it better contain a list of files
-        if (ref $path eq 'ARRAY') {
+        if (ref($path) eq 'ARRAY') {
             @files = @{$path};
         }
         elsif (-d -r $path) {
@@ -147,7 +127,7 @@ sub _build_conf_data {
         }
         elsif ($path =~ /\.yaml$/ && -r $path) { push(@files, $path) }
 
-        next unless @files;
+        next unless (@files);
 
         # now that we have a list of (hopefully) yaml files, lets read them in
         foreach my $file (@files) {
@@ -156,7 +136,7 @@ sub _build_conf_data {
 
             $data = Hash::Merge::Simple::merge($data, YAML::XS::LoadFile($file));
 
-            unless (ref $data eq 'HASH') {
+            unless (ref($data) eq 'HASH') {
                 $self->log->error("Failed to load $file because... $_");
                 die "Failed to load $file because... $_";
             }
@@ -164,6 +144,66 @@ sub _build_conf_data {
     }
 
     return $data;
+}
+
+sub _build_global {
+    my ($self) = @_;
+
+    my $filepath = File::Spec->catfile($self->_system_directory_root, 'thorium.yaml');
+
+    if (-e -r -s $filepath) {
+        return $filepath;
+    }
+
+    return;
+}
+
+sub _build_system {
+    my ($self) = @_;
+
+    return unless ($self->component_name);
+
+    my $filepath = File::Spec->catfile($self->_system_directory_root, $self->component_name . '.yaml');
+
+    if (-e -r -s $filepath) {
+        return $filepath;
+    }
+
+    return;
+}
+
+sub _build_component {
+    my ($self) = @_;
+
+    my @files;
+
+    my $defaults_config = File::Spec->catfile($self->component_root, 'conf', 'presets', 'defaults.yaml');
+
+    if (-e -r -s $defaults_config) {
+        push(@files, $defaults_config);
+    }
+
+    my $preset_config = File::Spec->catfile($self->component_root, 'conf', 'local.yaml');
+
+    if (-e -r -s $preset_config) {
+        push(@files, $preset_config);
+    }
+
+    return \@files;
+}
+
+sub _build_env_var {
+    my ($self) = @_;
+
+    if (exists($ENV{$self->env_var_name})) {
+        my $filepath = File::Spec->catfile($ENV{$self->env_var_name});
+
+        if (-e -r -s $filepath) {
+            return $filepath;
+        }
+    }
+
+    return;
 }
 
 # Methods
@@ -310,7 +350,7 @@ Thorium::Conf - Configuration class
 
 =head1 VERSION
 
-version 0.500
+version 0.501
 
 =head1 SYNOPSIS
 
