@@ -45,6 +45,7 @@ lib/Thorium/SystemInfo.pm
 lib/Thorium/TODO.pod
 lib/Thorium/Types.pm
 lib/Thorium/TypesTests.pm
+lib/Thorium/Utils.pm
 t/00-load.t
 t/ThoriumTestComponent.pm
 t/author-pod-spell.t

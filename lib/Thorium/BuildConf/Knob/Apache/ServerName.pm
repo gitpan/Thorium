@@ -1,6 +1,6 @@
 package Thorium::BuildConf::Knob::Apache::ServerName;
 {
-  $Thorium::BuildConf::Knob::Apache::ServerName::VERSION = '0.502';
+  $Thorium::BuildConf::Knob::Apache::ServerName::VERSION = '0.503';
 }
 
 # ABSTRACT: Apache's ServerName directive
@@ -63,7 +63,7 @@ Thorium::BuildConf::Knob::Apache::ServerName - Apache's ServerName directive
 
 =head1 VERSION
 
-version 0.502
+version 0.503
 
 =head1 AUTHOR
 

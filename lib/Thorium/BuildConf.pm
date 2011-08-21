@@ -1,6 +1,6 @@
 package Thorium::BuildConf;
 {
-  $Thorium::BuildConf::VERSION = '0.502';
+  $Thorium::BuildConf::VERSION = '0.503';
 }
 
 # ABSTRACT: Configuration management class
@@ -251,10 +251,6 @@ sub save {
 
     return $self->conf->save($filename);
 }
-
-# TODO
-# 2. implement currently selected through dlg_current_listitem() from util.c
-# 3. figure out why resizing the term (sig winch) forces it to exit with value 0
 
 # A few notes:
 #
@@ -981,7 +977,7 @@ Thorium::BuildConf - Configuration management class
 
 =head1 VERSION
 
-version 0.502
+version 0.503
 
 =head1 SYNOPSIS
 

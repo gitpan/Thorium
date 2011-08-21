@@ -1,6 +1,6 @@
 package Thorium::Conf;
 {
-  $Thorium::Conf::VERSION = '0.502';
+  $Thorium::Conf::VERSION = '0.503';
 }
 
 # ABSTRACT: Configuration class
@@ -226,8 +226,6 @@ sub data {
 
     $retdata = $data;
 
-    # TODO check if data('a') works as advertisted
-
     # Descend into the data structure and return whatever we find
     # NOTE: We only support lookups down the tree for hashes, until we discover
     # a use case for something more complex
@@ -350,7 +348,7 @@ Thorium::Conf - Configuration class
 
 =head1 VERSION
 
-version 0.502
+version 0.503
 
 =head1 SYNOPSIS
 
