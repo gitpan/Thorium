@@ -1,6 +1,6 @@
 package Thorium::BuildConf::Knob::Apache::ErrorLog;
 {
-  $Thorium::BuildConf::Knob::Apache::ErrorLog::VERSION = '0.503';
+  $Thorium::BuildConf::Knob::Apache::ErrorLog::VERSION = '0.504';
 }
 
 # ABSTRACT: Apache's ErrorLog directive
@@ -61,7 +61,7 @@ Thorium::BuildConf::Knob::Apache::ErrorLog - Apache's ErrorLog directive
 
 =head1 VERSION
 
-version 0.503
+version 0.504
 
 =head1 AUTHOR
 

@@ -1,6 +1,6 @@
 package Thorium::BuildConf::Knob::Apache::ServerRoot;
 {
-  $Thorium::BuildConf::Knob::Apache::ServerRoot::VERSION = '0.503';
+  $Thorium::BuildConf::Knob::Apache::ServerRoot::VERSION = '0.504';
 }
 
 # ABSTRACT: Apache's ServerRoot directive
@@ -60,7 +60,7 @@ Thorium::BuildConf::Knob::Apache::ServerRoot - Apache's ServerRoot directive
 
 =head1 VERSION
 
-version 0.503
+version 0.504
 
 =head1 AUTHOR
 

@@ -1,6 +1,6 @@
 package Thorium::Roles::Logging;
 {
-  $Thorium::Roles::Logging::VERSION = '0.503';
+  $Thorium::Roles::Logging::VERSION = '0.504';
 }
 
 # ABSTRACT: Adds standard logging to your class
@@ -50,7 +50,7 @@ Thorium::Roles::Logging - Adds standard logging to your class
 
 =head1 VERSION
 
-version 0.503
+version 0.504
 
 =head1 SYNOPSIS
 

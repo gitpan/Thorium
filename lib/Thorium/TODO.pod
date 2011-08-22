@@ -10,7 +10,7 @@ Thorium::TODO
 
 =head1 VERSION
 
-version 0.503
+version 0.504
 
 =head1 Thorium TODO
 

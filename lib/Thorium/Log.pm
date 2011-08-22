@@ -1,6 +1,6 @@
 package Thorium::Log;
 {
-  $Thorium::Log::VERSION = '0.503';
+  $Thorium::Log::VERSION = '0.504';
 }
 
 # ABSTRACT: Logging support
@@ -214,7 +214,7 @@ Thorium::Log - Logging support
 
 =head1 VERSION
 
-version 0.503
+version 0.504
 
 =head1 SYNOPSIS
 

@@ -1,6 +1,6 @@
 package Thorium::BuildConf;
 {
-  $Thorium::BuildConf::VERSION = '0.503';
+  $Thorium::BuildConf::VERSION = '0.504';
 }
 
 # ABSTRACT: Configuration management class
@@ -977,7 +977,7 @@ Thorium::BuildConf - Configuration management class
 
 =head1 VERSION
 
-version 0.503
+version 0.504
 
 =head1 SYNOPSIS
 

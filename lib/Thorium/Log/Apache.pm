@@ -1,6 +1,6 @@
 package Thorium::Log::Apache;
 {
-  $Thorium::Log::Apache::VERSION = '0.503';
+  $Thorium::Log::Apache::VERSION = '0.504';
 }
 
 # ABSTRACT: Apache specific log class
@@ -36,7 +36,7 @@ Thorium::Log::Apache - Apache specific log class
 
 =head1 VERSION
 
-version 0.503
+version 0.504
 
 =head1 AUTHOR
 

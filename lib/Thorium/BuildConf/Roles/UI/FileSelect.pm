@@ -1,6 +1,6 @@
 package Thorium::BuildConf::Roles::UI::FileSelect;
 {
-  $Thorium::BuildConf::Roles::UI::FileSelect::VERSION = '0.503';
+  $Thorium::BuildConf::Roles::UI::FileSelect::VERSION = '0.504';
 }
 
 # ABSTRACT: dialog file select role
@@ -28,7 +28,7 @@ Thorium::BuildConf::Roles::UI::FileSelect - dialog file select role
 
 =head1 VERSION
 
-version 0.503
+version 0.504
 
 =head1 AUTHOR
 
