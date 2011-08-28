@@ -1,6 +1,6 @@
 package Thorium::SystemInfo;
 {
-  $Thorium::SystemInfo::VERSION = '0.504';
+  $Thorium::SystemInfo::VERSION = '0.505';
 }
 
 # ABSTRACT: Query system information
@@ -65,7 +65,7 @@ Thorium::SystemInfo - Query system information
 
 =head1 VERSION
 
-version 0.504
+version 0.505
 
 =head1 SYNOPSIS
 

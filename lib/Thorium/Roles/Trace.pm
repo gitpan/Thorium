@@ -1,6 +1,6 @@
 package Thorium::Roles::Trace;
 {
-  $Thorium::Roles::Trace::VERSION = '0.504';
+  $Thorium::Roles::Trace::VERSION = '0.505';
 }
 
 # ABSTRACT: Add code tracing and argument dumping to your class
@@ -270,7 +270,7 @@ Thorium::Roles::Trace - Add code tracing and argument dumping to your class
 
 =head1 VERSION
 
-version 0.504
+version 0.505
 
 =head1 SYNOPSIS
 

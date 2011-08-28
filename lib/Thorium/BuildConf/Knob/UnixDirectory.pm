@@ -1,6 +1,6 @@
 package Thorium::BuildConf::Knob::UnixDirectory;
 {
-  $Thorium::BuildConf::Knob::UnixDirectory::VERSION = '0.504';
+  $Thorium::BuildConf::Knob::UnixDirectory::VERSION = '0.505';
 }
 
 # ABSTRACT: Unix directory
@@ -57,7 +57,7 @@ Thorium::BuildConf::Knob::UnixDirectory - Unix directory
 
 =head1 VERSION
 
-version 0.504
+version 0.505
 
 =head1 AUTHOR
 

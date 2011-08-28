@@ -1,6 +1,6 @@
 package Thorium::Conf;
 {
-  $Thorium::Conf::VERSION = '0.504';
+  $Thorium::Conf::VERSION = '0.505';
 }
 
 # ABSTRACT: Configuration class
@@ -348,7 +348,7 @@ Thorium::Conf - Configuration class
 
 =head1 VERSION
 
-version 0.504
+version 0.505
 
 =head1 SYNOPSIS
 

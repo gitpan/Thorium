@@ -1,6 +1,6 @@
 package Thorium::BuildConf::Knob::Apache::Listen;
 {
-  $Thorium::BuildConf::Knob::Apache::Listen::VERSION = '0.504';
+  $Thorium::BuildConf::Knob::Apache::Listen::VERSION = '0.505';
 }
 
 # ABSTRACT: Apache's Listen directive
@@ -60,7 +60,7 @@ Thorium::BuildConf::Knob::Apache::Listen - Apache's Listen directive
 
 =head1 VERSION
 
-version 0.504
+version 0.505
 
 =head1 AUTHOR
 

@@ -1,6 +1,6 @@
 package Thorium::Types;
 {
-  $Thorium::Types::VERSION = '0.504';
+  $Thorium::Types::VERSION = '0.505';
 }
 
 # ABSTRACT: Custom types
@@ -120,7 +120,7 @@ Thorium::Types - Custom types
 
 =head1 VERSION
 
-version 0.504
+version 0.505
 
 =head1 AUTHOR
 

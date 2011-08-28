@@ -1,6 +1,6 @@
 package Thorium::BuildConf::Roles::UI::DirectorySelect;
 {
-  $Thorium::BuildConf::Roles::UI::DirectorySelect::VERSION = '0.504';
+  $Thorium::BuildConf::Roles::UI::DirectorySelect::VERSION = '0.505';
 }
 
 # ABSTRACT: dialog directory selector role
@@ -28,7 +28,7 @@ Thorium::BuildConf::Roles::UI::DirectorySelect - dialog directory selector role
 
 =head1 VERSION
 
-version 0.504
+version 0.505
 
 =head1 AUTHOR
 
