@@ -1,6 +1,6 @@
 package Thorium::BuildConf::Roles::UI::Menu;
 {
-  $Thorium::BuildConf::Roles::UI::Menu::VERSION = '0.505';
+  $Thorium::BuildConf::Roles::UI::Menu::VERSION = '0.506';
 }
 
 # ABSTRACT: dialog menu role
@@ -28,7 +28,7 @@ Thorium::BuildConf::Roles::UI::Menu - dialog menu role
 
 =head1 VERSION
 
-version 0.505
+version 0.506
 
 =head1 AUTHOR
 

@@ -39,7 +39,6 @@ lib/Thorium/Log/Apache.pm
 lib/Thorium/Protection.pm
 lib/Thorium/Roles/Conf.pm
 lib/Thorium/Roles/Logging.pm
-lib/Thorium/Roles/SocketClient.pm
 lib/Thorium/Roles/Trace.pm
 lib/Thorium/SystemInfo.pm
 lib/Thorium/TODO.pod

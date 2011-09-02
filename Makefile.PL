@@ -46,7 +46,7 @@ my %WriteMakefileArgs = (
     "YAML::XS" => 0,
     "indirect" => 0
   },
-  "VERSION" => "0.505",
+  "VERSION" => "0.506",
   "test" => {
     "TESTS" => "t/*.t"
   }
