@@ -1,6 +1,6 @@
 package Thorium::Conf;
 {
-  $Thorium::Conf::VERSION = '0.506';
+  $Thorium::Conf::VERSION = '0.507';
 }
 
 # ABSTRACT: Configuration class
@@ -40,6 +40,12 @@ has '_system_directory_root' => (
     'isa'           => 'Str',
     'default'       => '/etc/thorium/conf',
     'documentation' => 'Directory root where global files are located. Changing this is not recommended.'
+);
+
+has '_local_file_name' => (
+    'is'      => 'ro',
+    'isa'     => 'Str',
+    'default' => 'local.yaml'
 );
 
 has 'component_name' => (
@@ -102,8 +108,15 @@ has 'from' => (
 
 # Builders: subclass modifiable defaults - these aren't called if a value is provided
 sub _build_conf_data {
-    my $self = shift;
+    my ($self) = @_;
+
     my $data = {};
+
+    my $local_data = File::Spec->catfile($self->component_root, 'conf', $self->_local_file_name);
+
+    if (-e -r -f $local_data) {
+        unlink($local_data) || die($!);
+    }
 
     # we read configuration information in a set order
     foreach my $attrib (@{$self->_load_order}) {
@@ -125,9 +138,13 @@ sub _build_conf_data {
             $self->log->warn("$path is a directory, please specify files");
             next;
         }
-        elsif ($path =~ /\.yaml$/ && -r $path) { push(@files, $path) }
+        elsif ($path =~ /\.yaml$/ && -r $path) {
+            push(@files, $path);
+        }
 
         next unless (@files);
+
+        @files = grep { !(File::Basename::basename($_) eq $self->_local_file_name) } @files;
 
         # now that we have a list of (hopefully) yaml files, lets read them in
         foreach my $file (@files) {
@@ -183,7 +200,7 @@ sub _build_component {
         push(@files, $defaults_config);
     }
 
-    my $preset_config = File::Spec->catfile($self->component_root, 'conf', 'local.yaml');
+    my $preset_config = File::Spec->catfile($self->component_root, 'conf', $self->_local_file_name);
 
     if (-e -r -s $preset_config) {
         push(@files, $preset_config);
@@ -208,8 +225,7 @@ sub _build_env_var {
 
 # Methods
 sub data {
-    my $self = shift;
-    my $key  = shift;
+    my ($self, $key) = @_;
 
     my $retdata;
 
@@ -222,7 +238,8 @@ sub data {
     my $data = $self->_conf_data();
 
     # if no key was supplied, the user wants everything
-    return $data unless defined $key;
+    return $data
+      unless (defined($key));
 
     $retdata = $data;
 
@@ -230,12 +247,12 @@ sub data {
     # NOTE: We only support lookups down the tree for hashes, until we discover
     # a use case for something more complex
     foreach my $key_section (split('\.', $key)) {
-        if (ref $retdata ne 'HASH') {
+        if (ref($retdata) ne 'HASH') {
             $self->log->error("Can not look up key '$key_section' in non-hashref data '$retdata'");
             die "Can not look up key '$key_section' in non-hashref data '$data'";
         }
 
-        unless (exists $retdata->{$key_section}) {
+        unless (exists($retdata->{$key_section})) {
             $self->log->error("Nonexistent config value. Died on '$key_section' in '$key'");
             die "Nonexistent config value. Died on '$key_section' in '$key'";
         }
@@ -245,23 +262,20 @@ sub data {
 
     # The deepest value the key dictated
     return $retdata;
-}    # data
+}
 
 # The first request for data will do this, but maybe we want to have it happen
 # at a certain point before then (testing for example)
 sub load_conf {
-    my $self = shift;
+    my ($self) = @_;
 
     $self->_conf_data();
 
     return 1;
-}    # load_conf
+}
 
 sub set {
-    my $self = shift;
-
-    my $key   = shift;
-    my $value = shift;
+    my ($self, $key, $value) = @_;
 
     my $data = $self->data;
 
@@ -291,8 +305,7 @@ sub set {
 }
 
 sub save {
-    my $self     = shift;
-    my $filename = shift;
+    my ($self, $filename) = @_;
 
     my $data = $self->data;
 
@@ -312,7 +325,7 @@ sub save {
 }
 
 sub reload {
-    my $self = shift;
+    my ($self) = @_;
 
     my @files = map {
         if ($self->$_) {
@@ -348,7 +361,7 @@ Thorium::Conf - Configuration class
 
 =head1 VERSION
 
-version 0.506
+version 0.507
 
 =head1 SYNOPSIS
 

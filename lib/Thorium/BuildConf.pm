@@ -1,6 +1,6 @@
 package Thorium::BuildConf;
 {
-  $Thorium::BuildConf::VERSION = '0.506';
+  $Thorium::BuildConf::VERSION = '0.507';
 }
 
 # ABSTRACT: Configuration management class
@@ -8,12 +8,14 @@ package Thorium::BuildConf;
 use Thorium::Protection;
 
 BEGIN {
+
     # these environment variables influence how dialog returns exit codes, and
     # other options which may cause unwanted side effects, so delete them to
     # avoid any unwanted side effects
-    foreach
-      my $v (qw(DIALOGOPTS DIALOG_CANCEL DIALOG_ERROR DIALOG_ESC
-                DIALOG_EXTRA DIALOG_HELP DIALOG_ITEM_HELP DIALOG_OK)) {
+    foreach my $v (
+        qw(DIALOGOPTS DIALOG_CANCEL DIALOG_ERROR DIALOG_ESC
+        DIALOG_EXTRA DIALOG_HELP DIALOG_ITEM_HELP DIALOG_OK)
+      ) {
         delete($ENV{$v});
     }
 }
@@ -137,6 +139,14 @@ has 'knobs' => (
     'documentation' => 'List of knob objects.'
 );
 
+sub _print_to_stdout {
+    my (@msg) = @_;
+
+    if (-t STDOUT) {
+        say(@msg);
+    }
+}
+
 sub BUILD {
     my ($self) = @_;
 
@@ -224,10 +234,10 @@ sub _set_conf_values {
         my $set_value;
         given ($q->ui_type) {
             when ('Menu') {
-                $set_value = $q->value || $q->data->[$q->selected]->{'name'};
+                $set_value = $q->value || $q->data->[ $q->selected ]->{'name'};
             }
             when ('RadioList') {
-                $set_value = $q->value || $q->data->[$q->selected]->{'name'};
+                $set_value = $q->value || $q->data->[ $q->selected ]->{'name'};
             }
             default {
                 $set_value = $q->value || $q->data;
@@ -287,15 +297,15 @@ sub ask {
         'menu_height' => 12,
         'width'       => 75,
         'items'       => [
-            {'name' => 'Introduction', 'text' => 'User guide'},
-            {'name' => '---',          'text' => '---'},
-            {'name' => 'Configure',    'text' => 'Configure'},
-            {'name' => '---',          'text' => '---'},
-            {'name' => 'Load',         'text' => 'Load values from a given preset'},
-            {'name' => 'Save',         'text' => 'Save to a preset file'},
-            {'name' => 'List',         'text' => 'List available presets'},
-            {'name' => '---',          'text' => '---'},
-            {'name' => 'Exit',         'text' => 'Exit'}
+            {'name' => 'Configure', 'text' => 'Configure'},
+            {'name' => '---',       'text' => '---'},
+            {'name' => 'Load',      'text' => 'Load values from a given preset'},
+            {'name' => 'Save',      'text' => 'Save to a preset file'},
+            {'name' => 'List',      'text' => 'List available presets'},
+            {'name' => '---',       'text' => '---'},
+            {'name' => 'Help',      'text' => 'User guide'},
+            {'name' => '---',       'text' => '---'},
+            {'name' => 'Exit',      'text' => 'Exit'}
         ]
     );
 
@@ -315,6 +325,7 @@ sub ask {
                 $main_menu->hide;
             }
             default {
+                $main_window->destroy;
                 die("I don't know what the error code $_ is!");
             }
         }
@@ -552,7 +563,6 @@ option from configure.
                             }
                         }
 
-
                         eval { $q->value($value); };
 
                         if (my $e = $@) {
@@ -715,18 +725,32 @@ sub process {
         $fs = [$fs];
     }
 
-    if ($self->auto_fixup_module) {
-        # 'Staging' and 'Production' are special case fixups we don't want any
-        # autoset magic to apply to
+    {
+        my $saveout;
 
-        my $production = 0;
-
-        if ($self->fixup) {
-            $production = ($self->fixup =~ /(?:Staging|Production)/);
+        if ($self->in_gui) {
+            open($saveout, ">&STDOUT");
+            open(STDOUT, '>', File::Spec->devnull);
         }
 
-        unless ($production) {
-            $self->apply_fixup($self->auto_fixup_module);
+        if ($self->auto_fixup_module) {
+
+            # 'Staging' and 'Production' are special case fixups we don't want any
+            # autoset magic to apply to
+
+            my $production = 0;
+
+            if ($self->fixup) {
+                $production = ($self->fixup =~ /(?:Staging|Production)/);
+            }
+
+            unless ($production) {
+                $self->apply_fixup($self->auto_fixup_module);
+            }
+        }
+
+        if ($self->in_gui) {
+            open(STDOUT, ">&", $saveout);
         }
     }
 
@@ -772,7 +796,7 @@ sub process {
             if ($self->in_gui) {
                 my $em = Hobocamp::MessageBox->new(
                     'title'  => 'Template Toolkit Error',
-                    'prompt' => $template->error->as_string
+                    'prompt' => $file . ": \n\n" . $template->error->as_string
                 );
                 $em->run;
                 Hobocamp->destroy;
@@ -784,8 +808,8 @@ sub process {
         push(@processed, $file);
 
         if ($preview_flag) {
-            say("# ---------- $file ----------");
-            say($output, "\n");
+            _print_to_stdout("# ---------- $file ----------");
+            _print_to_stdout($output, "\n");
         }
         else {
             my $mode = 0444;
@@ -805,17 +829,17 @@ sub run {
         when ('list') {
             my @presets = $self->list_presets;
             if (@presets) {
-                print("Preset Configruations:\n\n  ", join("\n  ", sort(@presets)), "\n\n");
+                _print_to_stdout("Preset Configruations:\n\n  ", join("\n  ", sort(@presets)), "\n");
             }
             else {
-                say('No preset configurations.');
+                _print_to_stdout('No preset configurations.');
             }
 
             $ret = scalar(@presets);
 
             my @fixups = $self->list_fixups;
             if (@fixups) {
-                print("Available Fixups:\n\n  ", join("\n  ", sort(@fixups)), "\n\n");
+                _print_to_stdout("Available Fixups:\n\n  ", join("\n  ", sort(@fixups)), "\n");
             }
 
             $ret &= scalar(@fixups);
@@ -830,20 +854,24 @@ sub run {
             my @changed = $self->process;
 
             if (@changed) {
-                print("Processed:\n\n  ",
-                      join("\n  ",
-                           map {
-                               my $f = File::Spec->abs2rel($_, $FindBin::Bin);
-                               my $f2 = $f;
+                _print_to_stdout(
+                    "Processed:\n\n  ",
+                    join(
+                        "\n  ",
+                        map {
+                            my $f = File::Spec->abs2rel($_, $FindBin::Bin);
+                            my $f2 = $f;
 
-                               $f2 =~ s/\.tt2$//;
+                            $f2 =~ s/\.tt2$//;
 
-                               $_ = $f . ' -> ' . $f2;
-                             } @changed),
-                    "\n\n");
+                            $_ = $f . ' -> ' . $f2;
+                          } @changed
+                    ),
+                    "\n"
+                );
             }
             else {
-                say('No config files processed!');
+                _print_to_stdout('No config files processed!');
             }
 
             $ret = scalar(@changed);
@@ -869,7 +897,7 @@ sub apply_fixup {
 
     return unless ($module_name);
 
-    say("Applying fixup $module_name");
+    _print_to_stdout("Applying fixup $module_name");
     $self->log->trace("Applying fixup $module_name");
 
     Class::MOP::load_class($module_name);
@@ -948,7 +976,6 @@ Usage: $script [--help]
 --help             Show this help screen
 
 --list             List all available presets and fixups
---save <preset>    Save the current configuration as a preset named <preset>
 --load <preset>    Load the preset configuration named <preset>
 
 --preview          Print the processed templates to standard out
@@ -977,7 +1004,7 @@ Thorium::BuildConf - Configuration management class
 
 =head1 VERSION
 
-version 0.506
+version 0.507
 
 =head1 SYNOPSIS
 

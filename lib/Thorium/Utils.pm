@@ -1,6 +1,6 @@
 package Thorium::Utils;
 {
-  $Thorium::Utils::VERSION = '0.506';
+  $Thorium::Utils::VERSION = '0.507';
 }
 
 # ABSTRACT: additional utilities
@@ -226,7 +226,7 @@ Thorium::Utils - additional utilities
 
 =head1 VERSION
 
-version 0.506
+version 0.507
 
 =head1 SYNOPSIS
 

@@ -1,6 +1,6 @@
 package Thorium;
 {
-  $Thorium::VERSION = '0.506';
+  $Thorium::VERSION = '0.507';
 }
 
 # ABSTRACT: Configuration management framework
@@ -17,7 +17,7 @@ Thorium - Configuration management framework
 
 =head1 VERSION
 
-version 0.506
+version 0.507
 
 =head1 ABOUT
 
