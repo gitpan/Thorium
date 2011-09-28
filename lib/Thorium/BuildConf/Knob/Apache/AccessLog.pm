@@ -1,6 +1,6 @@
 package Thorium::BuildConf::Knob::Apache::AccessLog;
 {
-  $Thorium::BuildConf::Knob::Apache::AccessLog::VERSION = '0.508';
+  $Thorium::BuildConf::Knob::Apache::AccessLog::VERSION = '0.509';
 }
 BEGIN {
   $Thorium::BuildConf::Knob::Apache::AccessLog::AUTHORITY = 'cpan:AFLOTT';
@@ -64,7 +64,7 @@ Thorium::BuildConf::Knob::Apache::AccessLog - Apache's AccessLog directive
 
 =head1 VERSION
 
-version 0.508
+version 0.509
 
 =head1 AUTHOR
 

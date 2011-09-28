@@ -1,6 +1,6 @@
 package Thorium::Roles::Trace;
 {
-  $Thorium::Roles::Trace::VERSION = '0.508';
+  $Thorium::Roles::Trace::VERSION = '0.509';
 }
 BEGIN {
   $Thorium::Roles::Trace::AUTHORITY = 'cpan:AFLOTT';
@@ -273,7 +273,7 @@ Thorium::Roles::Trace - Add code tracing and argument dumping to your class
 
 =head1 VERSION
 
-version 0.508
+version 0.509
 
 =head1 SYNOPSIS
 

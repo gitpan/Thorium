@@ -1,6 +1,6 @@
 package Thorium::BuildConf;
 {
-  $Thorium::BuildConf::VERSION = '0.508';
+  $Thorium::BuildConf::VERSION = '0.509';
 }
 BEGIN {
   $Thorium::BuildConf::AUTHORITY = 'cpan:AFLOTT';
@@ -164,7 +164,7 @@ sub BUILD {
     $self->preset_root(File::Spec->catfile($self->root, @{$self->preset_path}));
 
     my %opts;
-    Getopt::Long::GetOptions(\%opts, qw(verbose:1 help load=s list save=s fixup:s preview!)) or $self->usage();
+    Getopt::Long::GetOptions(\%opts, qw(verbose:1 help load=s list fixup:s preview!)) or $self->usage();
 
     $self->usage() if (exists($opts{'help'}));
 
@@ -645,6 +645,7 @@ option from configure.
                     }
                 }
 
+                $self->conf->_delete_local;
                 $self->conf->from(File::Spec->catfile($self->preset_root, $menu->value->{'name'} . '.yaml'));
                 $self->conf->reload;
 
@@ -856,6 +857,7 @@ sub run {
             $ret &= scalar(@fixups);
         }
         when ('load') {
+            $self->conf->_delete_local;
             $self->conf->from($self->preset);
             $self->conf->reload;
             $self->_set_question_values;
@@ -888,6 +890,7 @@ sub run {
             $ret = scalar(@changed);
         }
         when ('preview') {
+            $self->conf->_delete_local;
             $self->conf->reload;
             $self->_set_question_values;
             $self->_set_conf_values;
@@ -1015,7 +1018,7 @@ Thorium::BuildConf - Configuration management class
 
 =head1 VERSION
 
-version 0.508
+version 0.509
 
 =head1 SYNOPSIS
 

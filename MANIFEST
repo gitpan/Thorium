@@ -6,13 +6,16 @@ Makefile.PL
 README
 conf/log.conf
 dist.ini
+examples/conf/local.yaml
 examples/conf/presets/defaults.yaml
 examples/configure
 examples/lib/Pizza/BuildConf.pm
 examples/lib/Pizza/BuildConf/Fixups/AutoSet.pm
 examples/lib/Pizza/BuildConf/Knob/CrustType.pm
 examples/lib/Pizza/Conf.pm
+examples/pizza
 examples/pizza.tt2
+examples/runner.pl
 lib/Thorium.pm
 lib/Thorium/BuildConf.pm
 lib/Thorium/BuildConf/Knob/Apache/AccessLog.pm

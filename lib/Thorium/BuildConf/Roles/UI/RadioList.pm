@@ -1,6 +1,6 @@
 package Thorium::BuildConf::Roles::UI::RadioList;
 {
-  $Thorium::BuildConf::Roles::UI::RadioList::VERSION = '0.508';
+  $Thorium::BuildConf::Roles::UI::RadioList::VERSION = '0.509';
 }
 BEGIN {
   $Thorium::BuildConf::Roles::UI::RadioList::AUTHORITY = 'cpan:AFLOTT';
@@ -31,7 +31,7 @@ Thorium::BuildConf::Roles::UI::RadioList - dialog radio list role
 
 =head1 VERSION
 
-version 0.508
+version 0.509
 
 =head1 AUTHOR
 

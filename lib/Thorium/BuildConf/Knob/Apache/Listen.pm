@@ -1,6 +1,6 @@
 package Thorium::BuildConf::Knob::Apache::Listen;
 {
-  $Thorium::BuildConf::Knob::Apache::Listen::VERSION = '0.508';
+  $Thorium::BuildConf::Knob::Apache::Listen::VERSION = '0.509';
 }
 BEGIN {
   $Thorium::BuildConf::Knob::Apache::Listen::AUTHORITY = 'cpan:AFLOTT';
@@ -63,7 +63,7 @@ Thorium::BuildConf::Knob::Apache::Listen - Apache's Listen directive
 
 =head1 VERSION
 
-version 0.508
+version 0.509
 
 =head1 AUTHOR
 
