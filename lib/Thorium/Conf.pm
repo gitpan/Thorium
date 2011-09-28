@@ -1,6 +1,9 @@
 package Thorium::Conf;
 {
-  $Thorium::Conf::VERSION = '0.507';
+  $Thorium::Conf::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::Conf::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: Configuration class
@@ -361,7 +364,7 @@ Thorium::Conf - Configuration class
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 SYNOPSIS
 

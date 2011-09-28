@@ -1,6 +1,9 @@
 package Thorium::BuildConf::Knob::Apache::LogLevel;
 {
-  $Thorium::BuildConf::Knob::Apache::LogLevel::VERSION = '0.507';
+  $Thorium::BuildConf::Knob::Apache::LogLevel::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::BuildConf::Knob::Apache::LogLevel::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: Apache's LogLevel directive
@@ -69,7 +72,7 @@ Thorium::BuildConf::Knob::Apache::LogLevel - Apache's LogLevel directive
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 AUTHOR
 

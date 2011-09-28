@@ -1,6 +1,9 @@
 package Thorium::BuildConf::Knob::UnixBinary;
 {
-  $Thorium::BuildConf::Knob::UnixBinary::VERSION = '0.507';
+  $Thorium::BuildConf::Knob::UnixBinary::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::BuildConf::Knob::UnixBinary::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: Unix binary
@@ -60,7 +63,7 @@ Thorium::BuildConf::Knob::UnixBinary - Unix binary
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 AUTHOR
 

@@ -1,6 +1,9 @@
 package Thorium::BuildConf::Roles::UI::DirectorySelect;
 {
-  $Thorium::BuildConf::Roles::UI::DirectorySelect::VERSION = '0.507';
+  $Thorium::BuildConf::Roles::UI::DirectorySelect::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::BuildConf::Roles::UI::DirectorySelect::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: dialog directory selector role
@@ -28,7 +31,7 @@ Thorium::BuildConf::Roles::UI::DirectorySelect - dialog directory selector role
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 AUTHOR
 

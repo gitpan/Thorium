@@ -1,6 +1,9 @@
 package Thorium::BuildConf::Roles::UI::Menu;
 {
-  $Thorium::BuildConf::Roles::UI::Menu::VERSION = '0.507';
+  $Thorium::BuildConf::Roles::UI::Menu::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::BuildConf::Roles::UI::Menu::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: dialog menu role
@@ -28,7 +31,7 @@ Thorium::BuildConf::Roles::UI::Menu - dialog menu role
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 AUTHOR
 

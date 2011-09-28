@@ -38,4 +38,7 @@ requires:
   Try::Tiny: 0
   YAML::XS: 0
   indirect: 0
-version: 0.507
+resources:
+  repository: git://github.com/aflott/libthorium-perl.git
+version: 0.508
+x_authority: cpan:AFLOTT

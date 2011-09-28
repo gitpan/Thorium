@@ -1,6 +1,9 @@
 package Thorium::BuildConf::Knob::UnixFilename;
 {
-  $Thorium::BuildConf::Knob::UnixFilename::VERSION = '0.507';
+  $Thorium::BuildConf::Knob::UnixFilename::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::BuildConf::Knob::UnixFilename::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: Unix filename
@@ -57,7 +60,7 @@ Thorium::BuildConf::Knob::UnixFilename - Unix filename
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 AUTHOR
 

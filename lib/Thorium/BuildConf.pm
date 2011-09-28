@@ -1,6 +1,9 @@
 package Thorium::BuildConf;
 {
-  $Thorium::BuildConf::VERSION = '0.507';
+  $Thorium::BuildConf::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::BuildConf::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: Configuration management class
@@ -78,11 +81,19 @@ has 'preset' => (
     'documentation' => 'Full file path to the preset.'
 );
 
+has 'preset_path' => (
+    'isa'           => 'ArrayRef',
+    'is'            => 'ro',
+    'default'       => sub { [ 'conf', 'presets' ] },
+    'documentation' => q(Relative directory path to the presets from root e.g. ['conf','presets'].)
+);
+
 has 'preset_root' => (
-    'isa'           => 'Str',
-    'is'            => 'rw',
-    'default'       => '',
-    'documentation' => 'Directory root of the presets e.g. $self->root + "conf/presets".'
+    'isa'     => 'Str',
+    'is'      => 'rw',
+    'default' => '',
+    'documentation' =>
+      'Directory root of the presets e.g. $self->root + "conf/presets". Normally built with root + preset_path.'
 );
 
 has 'action' => (
@@ -150,7 +161,7 @@ sub _print_to_stdout {
 sub BUILD {
     my ($self) = @_;
 
-    $self->preset_root(File::Spec->catfile($self->root, 'conf', 'presets'));
+    $self->preset_root(File::Spec->catfile($self->root, @{$self->preset_path}));
 
     my %opts;
     Getopt::Long::GetOptions(\%opts, qw(verbose:1 help load=s list save=s fixup:s preview!)) or $self->usage();
@@ -1004,7 +1015,7 @@ Thorium::BuildConf - Configuration management class
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 SYNOPSIS
 
@@ -1076,7 +1087,12 @@ L<Thorium::BuildConf::Knob> for creating your own custom knob.
 
 =head2 PRESETS
 
-A preset is a static YAML data specific to a user or an environment.
+A preset is a static YAML data specific to a user or an environment. These are
+generally found in the directory 'conf/presets' under your application root.
+However these files can be in any location under your application root by
+changing preset_path default in your subclass, such as:
+
+  has '+preset_path' => ('default' => sub { [ 'perl', 'conf', 'presets' ] } );
 
 =head1 ATTRIBUTES
 

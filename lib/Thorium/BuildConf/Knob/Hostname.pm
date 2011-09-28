@@ -1,6 +1,9 @@
 package Thorium::BuildConf::Knob::Hostname;
 {
-  $Thorium::BuildConf::Knob::Hostname::VERSION = '0.507';
+  $Thorium::BuildConf::Knob::Hostname::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::BuildConf::Knob::Hostname::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: Network hostname
@@ -58,7 +61,7 @@ Thorium::BuildConf::Knob::Hostname - Network hostname
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 AUTHOR
 

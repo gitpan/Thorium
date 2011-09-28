@@ -1,6 +1,9 @@
 package Thorium::BuildConf::Knob::URL::HTTP;
 {
-  $Thorium::BuildConf::Knob::URL::HTTP::VERSION = '0.507';
+  $Thorium::BuildConf::Knob::URL::HTTP::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::BuildConf::Knob::URL::HTTP::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: HTTP URL
@@ -57,7 +60,7 @@ Thorium::BuildConf::Knob::URL::HTTP - HTTP URL
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 AUTHOR
 

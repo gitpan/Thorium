@@ -1,6 +1,9 @@
 package Thorium::TypesTests;
 {
-  $Thorium::TypesTests::VERSION = '0.507';
+  $Thorium::TypesTests::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::TypesTests::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: additional tests for Thorium::Types
@@ -58,7 +61,7 @@ Thorium::TypesTests - additional tests for Thorium::Types
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 SYNOPSIS
 

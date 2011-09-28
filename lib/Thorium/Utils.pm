@@ -1,6 +1,9 @@
 package Thorium::Utils;
 {
-  $Thorium::Utils::VERSION = '0.507';
+  $Thorium::Utils::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::Utils::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: additional utilities
@@ -226,7 +229,7 @@ Thorium::Utils - additional utilities
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 SYNOPSIS
 

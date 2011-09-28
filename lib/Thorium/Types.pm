@@ -1,6 +1,9 @@
 package Thorium::Types;
 {
-  $Thorium::Types::VERSION = '0.507';
+  $Thorium::Types::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::Types::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: Custom types
@@ -120,7 +123,7 @@ Thorium::Types - Custom types
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 AUTHOR
 

@@ -1,6 +1,9 @@
 package Thorium::BuildConf::Roles::UI::InputBox;
 {
-  $Thorium::BuildConf::Roles::UI::InputBox::VERSION = '0.507';
+  $Thorium::BuildConf::Roles::UI::InputBox::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::BuildConf::Roles::UI::InputBox::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: dialog input box role
@@ -28,7 +31,7 @@ Thorium::BuildConf::Roles::UI::InputBox - dialog input box role
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 AUTHOR
 

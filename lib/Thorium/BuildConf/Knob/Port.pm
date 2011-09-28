@@ -1,6 +1,9 @@
 package Thorium::BuildConf::Knob::Port;
 {
-  $Thorium::BuildConf::Knob::Port::VERSION = '0.507';
+  $Thorium::BuildConf::Knob::Port::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::BuildConf::Knob::Port::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: Network IP port
@@ -60,7 +63,7 @@ Thorium::BuildConf::Knob::Port - Network IP port
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 AUTHOR
 

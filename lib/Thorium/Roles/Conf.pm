@@ -1,6 +1,9 @@
 package Thorium::Roles::Conf;
 {
-  $Thorium::Roles::Conf::VERSION = '0.507';
+  $Thorium::Roles::Conf::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::Roles::Conf::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: Adds configuration to your class
@@ -38,7 +41,7 @@ Thorium::Roles::Conf - Adds configuration to your class
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 SYNOPSIS
 

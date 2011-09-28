@@ -1,6 +1,9 @@
 package Thorium::BuildConf::Knob::Apache::DocumentRoot;
 {
-  $Thorium::BuildConf::Knob::Apache::DocumentRoot::VERSION = '0.507';
+  $Thorium::BuildConf::Knob::Apache::DocumentRoot::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::BuildConf::Knob::Apache::DocumentRoot::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: Apache's DocumentRoot directive
@@ -60,7 +63,7 @@ Thorium::BuildConf::Knob::Apache::DocumentRoot - Apache's DocumentRoot directive
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 AUTHOR
 

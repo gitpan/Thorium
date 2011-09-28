@@ -1,6 +1,9 @@
 package Thorium::BuildConf::Roles::Knob;
 {
-  $Thorium::BuildConf::Roles::Knob::VERSION = '0.507';
+  $Thorium::BuildConf::Roles::Knob::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::BuildConf::Roles::Knob::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: knob role
@@ -31,7 +34,7 @@ Thorium::BuildConf::Roles::Knob - knob role
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 AUTHOR
 

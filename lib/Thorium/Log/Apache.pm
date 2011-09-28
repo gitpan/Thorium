@@ -1,6 +1,9 @@
 package Thorium::Log::Apache;
 {
-  $Thorium::Log::Apache::VERSION = '0.507';
+  $Thorium::Log::Apache::VERSION = '0.508';
+}
+BEGIN {
+  $Thorium::Log::Apache::AUTHORITY = 'cpan:AFLOTT';
 }
 
 # ABSTRACT: Apache specific log class
@@ -36,7 +39,7 @@ Thorium::Log::Apache - Apache specific log class
 
 =head1 VERSION
 
-version 0.507
+version 0.508
 
 =head1 AUTHOR
 
