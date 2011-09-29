@@ -1,6 +1,6 @@
 package Thorium::Protection;
 {
-  $Thorium::Protection::VERSION = '0.509';
+  $Thorium::Protection::VERSION = '0.510';
 }
 BEGIN {
   $Thorium::Protection::AUTHORITY = 'cpan:AFLOTT';
@@ -43,7 +43,7 @@ Thorium::Protection - Use protection when dealing with radioactive elements
 
 =head1 VERSION
 
-version 0.509
+version 0.510
 
 =head1 SYNOPSIS
 

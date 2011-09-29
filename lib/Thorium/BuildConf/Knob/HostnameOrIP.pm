@@ -1,6 +1,6 @@
 package Thorium::BuildConf::Knob::HostnameOrIP;
 {
-  $Thorium::BuildConf::Knob::HostnameOrIP::VERSION = '0.509';
+  $Thorium::BuildConf::Knob::HostnameOrIP::VERSION = '0.510';
 }
 BEGIN {
   $Thorium::BuildConf::Knob::HostnameOrIP::AUTHORITY = 'cpan:AFLOTT';
@@ -61,7 +61,7 @@ Thorium::BuildConf::Knob::HostnameOrIP - Network IP hostname or IP address
 
 =head1 VERSION
 
-version 0.509
+version 0.510
 
 =head1 AUTHOR
 

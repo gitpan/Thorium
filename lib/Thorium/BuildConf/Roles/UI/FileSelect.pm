@@ -1,6 +1,6 @@
 package Thorium::BuildConf::Roles::UI::FileSelect;
 {
-  $Thorium::BuildConf::Roles::UI::FileSelect::VERSION = '0.509';
+  $Thorium::BuildConf::Roles::UI::FileSelect::VERSION = '0.510';
 }
 BEGIN {
   $Thorium::BuildConf::Roles::UI::FileSelect::AUTHORITY = 'cpan:AFLOTT';
@@ -31,7 +31,7 @@ Thorium::BuildConf::Roles::UI::FileSelect - dialog file select role
 
 =head1 VERSION
 
-version 0.509
+version 0.510
 
 =head1 AUTHOR
 

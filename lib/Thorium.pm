@@ -1,6 +1,6 @@
 package Thorium;
 {
-  $Thorium::VERSION = '0.509';
+  $Thorium::VERSION = '0.510';
 }
 BEGIN {
   $Thorium::AUTHORITY = 'cpan:AFLOTT';
@@ -20,7 +20,7 @@ Thorium - Configuration management framework
 
 =head1 VERSION
 
-version 0.509
+version 0.510
 
 =head1 ABOUT
 

@@ -1,6 +1,6 @@
 package Thorium::BuildConf;
 {
-  $Thorium::BuildConf::VERSION = '0.509';
+  $Thorium::BuildConf::VERSION = '0.510';
 }
 BEGIN {
   $Thorium::BuildConf::AUTHORITY = 'cpan:AFLOTT';
@@ -1018,7 +1018,7 @@ Thorium::BuildConf - Configuration management class
 
 =head1 VERSION
 
-version 0.509
+version 0.510
 
 =head1 SYNOPSIS
 

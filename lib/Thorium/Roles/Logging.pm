@@ -1,6 +1,6 @@
 package Thorium::Roles::Logging;
 {
-  $Thorium::Roles::Logging::VERSION = '0.509';
+  $Thorium::Roles::Logging::VERSION = '0.510';
 }
 BEGIN {
   $Thorium::Roles::Logging::AUTHORITY = 'cpan:AFLOTT';
@@ -53,7 +53,7 @@ Thorium::Roles::Logging - Adds standard logging to your class
 
 =head1 VERSION
 
-version 0.509
+version 0.510
 
 =head1 SYNOPSIS
 

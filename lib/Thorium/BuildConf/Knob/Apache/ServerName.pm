@@ -1,6 +1,6 @@
 package Thorium::BuildConf::Knob::Apache::ServerName;
 {
-  $Thorium::BuildConf::Knob::Apache::ServerName::VERSION = '0.509';
+  $Thorium::BuildConf::Knob::Apache::ServerName::VERSION = '0.510';
 }
 BEGIN {
   $Thorium::BuildConf::Knob::Apache::ServerName::AUTHORITY = 'cpan:AFLOTT';
@@ -66,7 +66,7 @@ Thorium::BuildConf::Knob::Apache::ServerName - Apache's ServerName directive
 
 =head1 VERSION
 
-version 0.509
+version 0.510
 
 =head1 AUTHOR
 

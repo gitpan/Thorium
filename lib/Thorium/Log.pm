@@ -1,6 +1,6 @@
 package Thorium::Log;
 {
-  $Thorium::Log::VERSION = '0.509';
+  $Thorium::Log::VERSION = '0.510';
 }
 BEGIN {
   $Thorium::Log::AUTHORITY = 'cpan:AFLOTT';
@@ -217,7 +217,7 @@ Thorium::Log - Logging support
 
 =head1 VERSION
 
-version 0.509
+version 0.510
 
 =head1 SYNOPSIS
 

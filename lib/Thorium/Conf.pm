@@ -1,6 +1,6 @@
 package Thorium::Conf;
 {
-  $Thorium::Conf::VERSION = '0.509';
+  $Thorium::Conf::VERSION = '0.510';
 }
 BEGIN {
   $Thorium::Conf::AUTHORITY = 'cpan:AFLOTT';
@@ -140,8 +140,6 @@ sub _build_conf_data {
         }
 
         next unless (@files);
-
-        @files = grep { !(File::Basename::basename($_) eq $self->_local_file_name) } @files;
 
         # now that we have a list of (hopefully) yaml files, lets read them in
         foreach my $file (@files) {
@@ -368,7 +366,7 @@ Thorium::Conf - Configuration class
 
 =head1 VERSION
 
-version 0.509
+version 0.510
 
 =head1 SYNOPSIS
 

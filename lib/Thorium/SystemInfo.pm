@@ -1,6 +1,6 @@
 package Thorium::SystemInfo;
 {
-  $Thorium::SystemInfo::VERSION = '0.509';
+  $Thorium::SystemInfo::VERSION = '0.510';
 }
 BEGIN {
   $Thorium::SystemInfo::AUTHORITY = 'cpan:AFLOTT';
@@ -68,7 +68,7 @@ Thorium::SystemInfo - Query system information
 
 =head1 VERSION
 
-version 0.509
+version 0.510
 
 =head1 SYNOPSIS
 

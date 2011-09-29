@@ -40,5 +40,5 @@ requires:
   indirect: 0
 resources:
   repository: git://github.com/aflott/libthorium-perl.git
-version: 0.509
+version: 0.510
 x_authority: cpan:AFLOTT
